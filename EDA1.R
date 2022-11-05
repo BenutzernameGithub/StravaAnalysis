@@ -14,6 +14,7 @@ activities %>% as_tibble() %>% head()
 #Grouping of activities per sport
 activities %>% group_by(Aktivitätsart) %>%
   summarize(count = dplyr::n()) %>% arrange(desc(count)) %>% 
-  ggplot(aes(x=Aktivitätsart,y = count, fill = count)) + 
-  geom_bar(stat = "identity")
+  ggplot(aes(x=Aktivitätsart,y = count, fill = wes_palette("Royal1"))) + 
+  geom_bar(stat = "identity") + scale_x_discrete(guide = guide_axis(n.dodge=3))
+
   
